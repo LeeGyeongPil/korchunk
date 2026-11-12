@@ -1,0 +1,52 @@
+{"id":"punct-1","category":"punct","text":"오늘 회의는 3시에 시작합니다. 자료는 미리 읽어 주세요! 질문 있나요?","sentences":["오늘 회의는 3시에 시작합니다.","자료는 미리 읽어 주세요!","질문 있나요?"]}
+{"id":"punct-2","category":"punct","text":"비가 그쳤다. 하늘이 맑다. 산책하러 나가자.","sentences":["비가 그쳤다.","하늘이 맑다.","산책하러 나가자."]}
+{"id":"punct-3","category":"punct","text":"서버를 재시작했습니다. 로그를 확인해 주세요.","sentences":["서버를 재시작했습니다.","로그를 확인해 주세요."]}
+{"id":"punct-4","category":"punct","text":"먼저, 설치합니다. 다음으로, 실행합니다. 마지막으로, 확인합니다.","sentences":["먼저, 설치합니다.","다음으로, 실행합니다.","마지막으로, 확인합니다."]}
+{"id":"question-1","category":"question","text":"정말요?! 믿을 수 없어요!! 다시 해 봅시다.","sentences":["정말요?!","믿을 수 없어요!!","다시 해 봅시다."]}
+{"id":"question-2","category":"question","text":"언제 끝나요? 내일까지 가능할까요? 확인 부탁드립니다.","sentences":["언제 끝나요?","내일까지 가능할까요?","확인 부탁드립니다."]}
+{"id":"question-3","category":"question","text":"이거 맞습니까 아니면 다른 방법이 있나요 알려 주세요","sentences":["이거 맞습니까","아니면 다른 방법이 있나요","알려 주세요"]}
+{"id":"spoken-1","category":"spoken","text":"어제 배포했어요 그런데 로그가 안 쌓이더라고요 그래서 롤백했습니다","sentences":["어제 배포했어요","그런데 로그가 안 쌓이더라고요","그래서 롤백했습니다"]}
+{"id":"spoken-2","category":"spoken","text":"회의 시작할게요 자료 공유해 주세요 감사합니다","sentences":["회의 시작할게요","자료 공유해 주세요","감사합니다"]}
+{"id":"spoken-3","category":"spoken","text":"저는 어제 병원에 갔어요 의사 선생님이 푹 쉬라고 했어요 그래서 오늘은 쉬어요","sentences":["저는 어제 병원에 갔어요","의사 선생님이 푹 쉬라고 했어요","그래서 오늘은 쉬어요"]}
+{"id":"spoken-4","category":"spoken","text":"오늘은 비가 왔다 우산이 없었다 그래서 편의점에서 샀다","sentences":["오늘은 비가 왔다","우산이 없었다","그래서 편의점에서 샀다"]}
+{"id":"spoken-5","category":"spoken","text":"문을 닫는다 불을 끈다 집을 나선다","sentences":["문을 닫는다","불을 끈다","집을 나선다"]}
+{"id":"chat-1","category":"chat","text":"확인했습니다\n내일 다시 볼게요\n고마워요","sentences":["확인했습니다","내일 다시 볼게요","고마워요"]}
+{"id":"chat-2","category":"chat","text":"안녕하세요\n오늘 배포 일정 공유드립니다\n3시에 시작해요\n감사합니다","sentences":["안녕하세요","오늘 배포 일정 공유드립니다","3시에 시작해요","감사합니다"]}
+{"id":"paragraph-1","category":"paragraph","text":"첫 번째 문단입니다. 계속 이어집니다.\n\n두 번째 문단\n제목 없는 줄","sentences":["첫 번째 문단입니다.","계속 이어집니다.","두 번째 문단\n제목 없는 줄"]}
+{"id":"paragraph-2","category":"paragraph","text":"제목\n\n본문은 여기부터 시작합니다. 끝.","sentences":["제목","본문은 여기부터 시작합니다.","끝."]}
+{"id":"number-1","category":"number","text":"버전 3.11.2 에서 고쳐졌다. 정확도는 92.5% 였다.","sentences":["버전 3.11.2 에서 고쳐졌다.","정확도는 92.5% 였다."]}
+{"id":"number-2","category":"number","text":"가격은 1,234.5원이다 환율은 1.35이다","sentences":["가격은 1,234.5원이다","환율은 1.35이다"]}
+{"id":"number-3","category":"number","text":"2026. 11. 12. 에 출시했다. 다음 버전은 내년이다.","sentences":["2026. 11. 12. 에 출시했다.","다음 버전은 내년이다."]}
+{"id":"quote-1","category":"quote","text":"그는 \"내일 오겠다. 꼭 기다려라.\"라고 말했다. 나는 기다렸다.","sentences":["그는 \"내일 오겠다. 꼭 기다려라.\"라고 말했다.","나는 기다렸다."]}
+{"id":"quote-2","category":"quote","text":"그녀가 \"지금 가요?\" 하고 물었다. 나는 고개를 끄덕였다.","sentences":["그녀가 \"지금 가요?\" 하고 물었다.","나는 고개를 끄덕였다."]}
+{"id":"quote-3","category":"quote","text":"\"안녕하세요.\" 그가 인사했다. \"반갑습니다.\" 내가 답했다.","sentences":["\"안녕하세요.\"","그가 인사했다.","\"반갑습니다.\"","내가 답했다."]}
+{"id":"quote-4","category":"quote","text":"그가 \"내일 보자\" 라고 했어요 저는 알겠다고 했어요","sentences":["그가 \"내일 보자\" 라고 했어요","저는 알겠다고 했어요"]}
+{"id":"quote-5","category":"quote","text":"그가 말했다 \"어제 갔어요 오늘은 안 가요\" 그리고 떠났다","sentences":["그가 말했다","\"어제 갔어요 오늘은 안 가요\"","그리고 떠났다"]}
+{"id":"quote-6","category":"quote","text":"그가 \"안녕이라고 했다. 그리고 갔다.","sentences":["그가 \"안녕이라고 했다.","그리고 갔다."]}
+{"id":"paren-1","category":"paren","text":"결과는 좋았다(표 3 참고). 다음 단계로 간다.","sentences":["결과는 좋았다(표 3 참고).","다음 단계로 간다."]}
+{"id":"paren-2","category":"paren","text":"이 함수는 (처음에는 느렸지만 지금은 빠릅니다) 널리 쓰인다. 문서를 참고하자.","sentences":["이 함수는 (처음에는 느렸지만 지금은 빠릅니다) 널리 쓰인다.","문서를 참고하자."]}
+{"id":"paren-3","category":"paren","text":"이름을 입력하세요(예: 홍길동. 성과 이름 모두). 다음으로 이동합니다.","sentences":["이름을 입력하세요(예: 홍길동. 성과 이름 모두).","다음으로 이동합니다."]}
+{"id":"list-1","category":"list","text":"1. 설치한다 2. 실행한다 3. 확인한다","sentences":["1. 설치한다","2. 실행한다","3. 확인한다"]}
+{"id":"list-2","category":"list","text":"할 일\n1. 문서 작성\n2. 코드 리뷰\n3. 배포","options":{"newline":"break"},"sentences":["할 일","1. 문서 작성","2. 코드 리뷰","3. 배포"]}
+{"id":"url-1","category":"url","text":"자세한 내용은 https://example.com/a.b 를 보세요. 예: 서울시 등.","sentences":["자세한 내용은 https://example.com/a.b 를 보세요.","예: 서울시 등."]}
+{"id":"url-2","category":"url","text":"문서는 www.example.org/docs/v1.2/index.html 에 있습니다. 문의는 help@example.com 으로 주세요.","sentences":["문서는 www.example.org/docs/v1.2/index.html 에 있습니다.","문의는 help@example.com 으로 주세요."]}
+{"id":"url-3","category":"url","text":"메일은 dev@example.com. 답장을 기다립니다.","sentences":["메일은 dev@example.com.","답장을 기다립니다."]}
+{"id":"abbr-1","category":"abbr","text":"Dr. Kim이 발표했다. 청중이 박수를 쳤다.","sentences":["Dr. Kim이 발표했다.","청중이 박수를 쳤다."]}
+{"id":"abbr-2","category":"abbr","text":"No. 5 모델이 가장 빠르다. 가격은 저렴하다.","options":{"abbreviations":["No."]},"sentences":["No. 5 모델이 가장 빠르다.","가격은 저렴하다."]}
+{"id":"connective-1","category":"connective","text":"비가 오는데 우산이 없다. 그래서 집에 있었다.","sentences":["비가 오는데 우산이 없다.","그래서 집에 있었다."]}
+{"id":"connective-2","category":"connective","text":"밥을 먹고 나서 커피를 마셨고 산책을 했다 그리고 집에 왔다","sentences":["밥을 먹고 나서 커피를 마셨고 산책을 했다","그리고 집에 왔다"]}
+{"id":"connective-3","category":"connective","text":"비가 오니까 우산을 챙겼지만 결국 안 썼어요 다행이에요","sentences":["비가 오니까 우산을 챙겼지만 결국 안 썼어요","다행이에요"]}
+{"id":"ellipsis-1","category":"ellipsis","text":"글쎄요... 잘 모르겠어요. 다시 볼게요.","sentences":["글쎄요...","잘 모르겠어요.","다시 볼게요."]}
+{"id":"ellipsis-2","category":"ellipsis","text":"글쎄요... 잘 모르겠어요. 다시 볼게요.","options":{"ellipsis":"keep"},"sentences":["글쎄요... 잘 모르겠어요.","다시 볼게요."]}
+{"id":"ellipsis-3","category":"ellipsis","text":"그건 말이죠… 아무튼 괜찮아요.","sentences":["그건 말이죠…","아무튼 괜찮아요."]}
+{"id":"negative-1","category":"negative","text":"중요 안건은 다음 주에 논의합니다","sentences":["중요 안건은 다음 주에 논의합니다"]}
+{"id":"negative-2","category":"negative","text":"바다 보다 산이 좋다","sentences":["바다 보다 산이 좋다"]}
+{"id":"negative-3","category":"negative","text":"이 모델은 한국어 문서를 청크로 나누는 데 쓰이며 문장 경계를 규칙으로 찾고 예산 안에서 묶습니다","sentences":["이 모델은 한국어 문서를 청크로 나누는 데 쓰이며 문장 경계를 규칙으로 찾고 예산 안에서 묶습니다"]}
+{"id":"mixed-1","category":"mixed","text":"We deployed v2.1.0 yesterday. 한국어 문장도 섞여 있어요 괜찮죠?","sentences":["We deployed v2.1.0 yesterday.","한국어 문장도 섞여 있어요","괜찮죠?"]}
+{"id":"mixed-2","category":"mixed","text":"회의록 v1.0 을 공유합니다. Please review 해 주세요.","sentences":["회의록 v1.0 을 공유합니다.","Please review 해 주세요."]}
+{"id":"emoticon-1","category":"emoticon","text":"배포 끝났어요ㅋㅋ 이제 퇴근합니다ㅎㅎ","sentences":["배포 끝났어요ㅋㅋ","이제 퇴근합니다ㅎㅎ"]}
+{"id":"emoticon-2","category":"emoticon","text":"오늘도 수고했어요 😀 내일 봐요 👋","sentences":["오늘도 수고했어요 😀","내일 봐요 👋"]}
+{"id":"crlf-1","category":"crlf","text":"첫 줄입니다\r\n둘째 줄입니다\r\n\r\n셋째 문단","sentences":["첫 줄입니다","둘째 줄입니다","셋째 문단"]}
+{"id":"crlf-2","category":"crlf","text":"항목 하나\r\n항목 둘","options":{"newline":"break"},"sentences":["항목 하나","항목 둘"]}
+{"id":"cjk-punct-1","category":"cjk-punct","text":"안녕하세요。 반갑습니다。","sentences":["안녕하세요。","반갑습니다。"]}
+{"id":"cjk-punct-2","category":"cjk-punct","text":"정말입니까？ 네！","sentences":["정말입니까？","네！"]}

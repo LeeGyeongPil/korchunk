@@ -1,0 +1,26 @@
+# No API keys, models or network needed: korchunk is a deterministic rule-based library.
+name: ci
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 3 * * 1"   # every Monday: catch Node / ICU changes that alter Intl.Segmenter output
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["20.19", "22", "24", "26"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run eval
+      - run: npm run smoke
+      - run: npm start
