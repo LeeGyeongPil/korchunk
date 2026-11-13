@@ -246,8 +246,8 @@ For reference, in a probe I ran myself during planning (10 tricky Korean cases w
 ## When to use it
 
 - Good fit: you index Korean documents for RAG in Node, a browser or an edge runtime without running a separate Python service, and you need chunks that never start mid-sentence plus original-text offsets.
-- Other tools: morphology-level splitting precision → [kss](https://github.com/hyunwoongko/kss) (Python); plain punctuated text with no dependency → the built-in [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter); English/Japanese-oriented sentence splitting → [sentence-splitter](https://github.com/textlint-rule/sentence-splitter); character or separator based splitting without sentence awareness → [@langchain/textsplitters](https://www.npmjs.com/package/@langchain/textsplitters) or [llm-splitter](https://github.com/nearform/llm-splitter).
-- Features of those tools change, so check their official docs before choosing (as of 2026-11-12 no npm package dedicated to Korean sentence splitting was found). The Python project `kochunk` is unrelated despite the similar name.
+- Other tools: morphology-level splitting precision → [kss](https://github.com/hyunwoongko/kss) (Python); plain punctuated text with no dependency → the built-in [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter); English/Japanese-oriented sentence splitting → [sentence-splitter](https://github.com/textlint-rule/sentence-splitter); character or separator based splitting without sentence awareness → [@langchain/textsplitters](https://www.npmjs.com/package/@langchain/textsplitters) or [llm-splitter](https://github.com/nearform/llm-splitter); light sentence-only splitting of punctuated Korean text → [kr-sentence](https://www.npmjs.com/package/kr-sentence).
+- Features of those tools change, so check their official docs before choosing (as of 2026-11-14 the punctuation-based Korean splitter [kr-sentence](https://www.npmjs.com/package/kr-sentence) exists on npm, but it has no ending-aware splitting, offsets or chunking). The Python project `kochunk` is unrelated despite the similar name.
 
 ## Alternatives
 
@@ -255,7 +255,7 @@ Values checked on 2026-11-12 from each package registry or repository. Features 
 
 | Tool | Form / version | Korean ending awareness | Offsets | Chunking | Runtime / dependencies |
 |---|---|---|---|---|---|
-| **korchunk** | npm (GitHub install) 0.1.1 | yes (rule-based) | UTF-16 `[start,end)` | sentence-based, overlap | zero dependencies, sync |
+| **korchunk** | npm (GitHub install) 0.1.2 | yes (rule-based) | UTF-16 `[start,end)` | sentence-based, overlap | zero dependencies, sync |
 | [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) | built into JS | no (punctuation-based) | `index` | none | built in; results vary with ICU version |
 | [sentence-splitter](https://www.npmjs.com/package/sentence-splitter) | npm 5.0.3 | no (aimed at English/Japanese) | `range`/`loc` | none | npm |
 | [sentencex-wasm](https://www.npmjs.com/package/sentencex-wasm) | npm 0.1.34 | no (punctuation + per-language abbreviations) | boundary function | none | WASM init required |

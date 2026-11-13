@@ -248,8 +248,8 @@ Intl.Segmenter misses: 25 of 52 cases
 ## 언제 쓰나
 
 - 이럴 때: Node·브라우저·엣지에서 한국어 문서를 RAG 색인하는데 Python 서비스를 따로 띄우고 싶지 않을 때, 문장 중간이 끊기지 않는 청크와 원문 위치(오프셋)가 필요할 때.
-- 이럴 땐 다른 도구: 형태소 분석 수준의 문장 분리 정밀도 → [kss](https://github.com/hyunwoongko/kss)(Python), 문장부호가 있는 일반 텍스트를 의존성 없이 → 런타임 내장 [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter), 영어·일본어 중심 문장 분리 → [sentence-splitter](https://github.com/textlint-rule/sentence-splitter), 문장 인식 없이 글자 수·구분자로 나누기 → [@langchain/textsplitters](https://www.npmjs.com/package/@langchain/textsplitters) 또는 [llm-splitter](https://github.com/nearform/llm-splitter).
-- 각 도구의 기능은 바뀔 수 있으니 선택 전에 공식 문서를 확인하세요(2026-11-12 기준으로 한국어 문장 분리 전용 npm 패키지는 찾지 못했습니다). 같은 이름과 헷갈리기 쉬운 Python `kochunk` 와는 별개 프로젝트입니다.
+- 이럴 땐 다른 도구: 형태소 분석 수준의 문장 분리 정밀도 → [kss](https://github.com/hyunwoongko/kss)(Python), 문장부호가 있는 일반 텍스트를 의존성 없이 → 런타임 내장 [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter), 영어·일본어 중심 문장 분리 → [sentence-splitter](https://github.com/textlint-rule/sentence-splitter), 문장 인식 없이 글자 수·구분자로 나누기 → [@langchain/textsplitters](https://www.npmjs.com/package/@langchain/textsplitters) 또는 [llm-splitter](https://github.com/nearform/llm-splitter), 문장부호가 있는 한국어 텍스트를 가볍게 문장으로만 나누기 → [kr-sentence](https://www.npmjs.com/package/kr-sentence).
+- 각 도구의 기능은 바뀔 수 있으니 선택 전에 공식 문서를 확인하세요(문장부호 기반 한국어 문장 분리 npm 패키지 [kr-sentence](https://www.npmjs.com/package/kr-sentence) 는 있으나 어미 인식(마침표 없는 문장)·원문 오프셋·청킹은 없습니다. 2026-11-14 확인). 같은 이름과 헷갈리기 쉬운 Python `kochunk` 와는 별개 프로젝트입니다.
 
 ## 대안 비교
 
@@ -257,7 +257,7 @@ Intl.Segmenter misses: 25 of 52 cases
 
 | 도구 | 형태·버전 | 한국어 어미 인식 | 오프셋 | 청킹 | 런타임·의존성 |
 |---|---|---|---|---|---|
-| **korchunk** | npm(GitHub 설치) 0.1.1 | 있음(규칙 기반) | UTF-16 `[start,end)` | 문장 단위, 겹침 | 의존성 0, 동기 |
+| **korchunk** | npm(GitHub 설치) 0.1.2 | 있음(규칙 기반) | UTF-16 `[start,end)` | 문장 단위, 겹침 | 의존성 0, 동기 |
 | [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) | JS 내장 | 없음(부호 기반) | `index` | 없음 | 내장, ICU 버전에 따라 결과 다름 |
 | [sentence-splitter](https://www.npmjs.com/package/sentence-splitter) | npm 5.0.3 | 없음(영어·일본어 대상) | `range`/`loc` | 없음 | npm |
 | [sentencex-wasm](https://www.npmjs.com/package/sentencex-wasm) | npm 0.1.34 | 없음(부호 + 언어별 약어) | 경계 함수 | 없음 | WASM 초기화 필요 |
