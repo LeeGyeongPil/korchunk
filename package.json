@@ -1,6 +1,6 @@
 {
   "name": "korchunk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Rule-based Korean sentence splitter and sentence-aware RAG chunker with original-text offsets. Zero dependencies, runs in Node, browsers and Deno.",
   "keywords": ["korean", "sentence", "splitter", "segmenter", "chunking", "rag", "text-splitter", "nlp", "한국어"],
   "license": "MIT",

@@ -86,7 +86,7 @@ flowchart LR
 
 ## Usage examples
 
-> Examples 2-4 below assume the same `import { splitSentences, chunk } from "korchunk";` line at the top of the file. Each example also exists as a runnable file under `examples/`.
+> Examples 1-4 below are each self-contained (imports included): copy one into an `.mjs` file and run it. Example 1 also exists as `examples/tokens.mjs`.
 
 **1) Token budget** — [`examples/tokens.mjs`](examples/tokens.mjs). korchunk bundles no tokenizer; you pass your own. This one is a toy counter (1 token per 2 characters); the file's comments show how to plug in `js-tiktoken`.
 
@@ -109,6 +109,8 @@ chunk 2 tokens=14: 첫째는 로그 수집이에요. 둘째는 검색 품질입�
 **2) Find the original position** — `slice` stays correct even with an emoji.
 
 ```js
+import { splitSentences } from "korchunk";
+
 const text = "정확도는 92.5% 로 올랐어요. 자세한 내용은 https://a.b/c 를 보세요 감사합니다 👍 또 봬요!";
 for (const s of splitSentences(text)) console.log(s.start, s.end, s.reason, JSON.stringify(text.slice(s.start, s.end)));
 ```
@@ -123,17 +125,24 @@ for (const s of splitSentences(text)) console.log(s.start, s.end, s.reason, JSON
 **3) Ellipsis and protected spans** — by default `...` followed by a space ends a sentence. Use `ellipsis: "keep"` for hesitating ellipses, and `protect` for spans that must never be cut.
 
 ```js
+import { splitSentences } from "korchunk";
+
 const t = "글쎄요... 잘 모르겠어요. 다시 볼게요.";
-splitSentences(t).length;                          // 3
-splitSentences(t, { ellipsis: "keep" }).length;    // 2
-splitSentences("주문번호 AB-123 은 처리됐어요 다음 건은 대기합니다", { protect: [/AB-123 은/g] })
-  .map((s) => s.text);
+console.log(splitSentences(t).length);                       // 3
+console.log(splitSentences(t, { ellipsis: "keep" }).length); // 2
+console.log(
+  splitSentences("주문번호 AB-123 은 처리됐어요 다음 건은 대기합니다", { protect: [/AB-123 은/g] })
+    .map((s) => s.text),
+);
 // [ '주문번호 AB-123 은 처리됐어요', '다음 건은 대기합니다' ]
 ```
 
 **4) Invalid options** — check `code` on `KorchunkOptionError`.
 
 ```js
+import { chunk } from "korchunk";
+
+const text = "회의 시작할게요 자료 공유해 주세요.";
 try { chunk(text, {}); } catch (e) { console.log(e instanceof RangeError, e.name, e.code); }
 // true KorchunkOptionError E_BUDGET_MISSING
 ```
@@ -246,7 +255,7 @@ Values checked on 2026-11-12 from each package registry or repository. Features 
 
 | Tool | Form / version | Korean ending awareness | Offsets | Chunking | Runtime / dependencies |
 |---|---|---|---|---|---|
-| **korchunk** | npm (GitHub install) 0.1.0 | yes (rule-based) | UTF-16 `[start,end)` | sentence-based, overlap | zero dependencies, sync |
+| **korchunk** | npm (GitHub install) 0.1.1 | yes (rule-based) | UTF-16 `[start,end)` | sentence-based, overlap | zero dependencies, sync |
 | [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) | built into JS | no (punctuation-based) | `index` | none | built in; results vary with ICU version |
 | [sentence-splitter](https://www.npmjs.com/package/sentence-splitter) | npm 5.0.3 | no (aimed at English/Japanese) | `range`/`loc` | none | npm |
 | [sentencex-wasm](https://www.npmjs.com/package/sentencex-wasm) | npm 0.1.34 | no (punctuation + per-language abbreviations) | boundary function | none | WASM init required |

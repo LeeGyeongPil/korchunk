@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-14
+
+### Fixed
+- README: the `examples/` note now matches the files that exist (example 1 is `examples/tokens.mjs`).
+- README: usage examples 2-4 (both languages) are now self-contained (import added; example 3 prints with `console.log`; example 4 defines `text`) and produce the documented output when copied and run.
+
 ## [0.1.0] - 2026-11-12
 
 ### Added
@@ -22,5 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   When a git install skipped the `prepare` build, the CLI says how to rebuild instead of printing a stack trace.
 - `npm run eval`: exact-match, precision and recall against a hand-written gold corpus, compared with `Intl.Segmenter`.
 
-[Unreleased]: https://github.com/LeeGyeongPil/korchunk/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/LeeGyeongPil/korchunk/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/LeeGyeongPil/korchunk/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/LeeGyeongPil/korchunk/releases/tag/v0.1.0

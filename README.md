@@ -88,7 +88,7 @@ flowchart LR
 
 ## 사용 예
 
-> 아래 예 2~4 는 같은 파일 위쪽 `import { splitSentences, chunk } from "korchunk";` 한 줄을 이어서 쓴다고 가정합니다. 각 예는 `examples/` 의 파일로도 있어 그대로 실행할 수 있습니다.
+> 아래 예 1~4 는 각각 그대로 복사해 `.mjs` 파일로 실행할 수 있습니다(`import` 포함). 예 1 은 `examples/tokens.mjs` 로도 있습니다.
 
 **1) 토큰 예산으로 묶기** — [`examples/tokens.mjs`](examples/tokens.mjs). 토크나이저는 포함하지 않으니 직접 연결합니다. 아래는 2글자를 1토큰으로 세는 장난감 계수기이고, 주석에 `js-tiktoken` 연결 예가 있습니다.
 
@@ -111,6 +111,8 @@ chunk 2 tokens=14: 첫째는 로그 수집이에요. 둘째는 검색 품질입�
 **2) 오프셋으로 원문 위치 되짚기** — 이모지가 있어도 `slice` 가 그대로 맞습니다.
 
 ```js
+import { splitSentences } from "korchunk";
+
 const text = "정확도는 92.5% 로 올랐어요. 자세한 내용은 https://a.b/c 를 보세요 감사합니다 👍 또 봬요!";
 for (const s of splitSentences(text)) console.log(s.start, s.end, s.reason, JSON.stringify(text.slice(s.start, s.end)));
 ```
@@ -125,17 +127,24 @@ for (const s of splitSentences(text)) console.log(s.start, s.end, s.reason, JSON
 **3) 말줄임표와 보호 구간** — 기본은 `...` 뒤를 경계로 봅니다. 망설임 말줄임표라면 `ellipsis: "keep"`, 끊으면 안 되는 구간은 `protect` 로 지정합니다.
 
 ```js
+import { splitSentences } from "korchunk";
+
 const t = "글쎄요... 잘 모르겠어요. 다시 볼게요.";
-splitSentences(t).length;                          // 3
-splitSentences(t, { ellipsis: "keep" }).length;    // 2
-splitSentences("주문번호 AB-123 은 처리됐어요 다음 건은 대기합니다", { protect: [/AB-123 은/g] })
-  .map((s) => s.text);
+console.log(splitSentences(t).length);                       // 3
+console.log(splitSentences(t, { ellipsis: "keep" }).length); // 2
+console.log(
+  splitSentences("주문번호 AB-123 은 처리됐어요 다음 건은 대기합니다", { protect: [/AB-123 은/g] })
+    .map((s) => s.text),
+);
 // [ '주문번호 AB-123 은 처리됐어요', '다음 건은 대기합니다' ]
 ```
 
 **4) 잘못된 옵션** — `KorchunkOptionError` 의 `code` 로 구분합니다.
 
 ```js
+import { chunk } from "korchunk";
+
+const text = "회의 시작할게요 자료 공유해 주세요.";
 try { chunk(text, {}); } catch (e) { console.log(e instanceof RangeError, e.name, e.code); }
 // true KorchunkOptionError E_BUDGET_MISSING
 ```
@@ -248,7 +257,7 @@ Intl.Segmenter misses: 25 of 52 cases
 
 | 도구 | 형태·버전 | 한국어 어미 인식 | 오프셋 | 청킹 | 런타임·의존성 |
 |---|---|---|---|---|---|
-| **korchunk** | npm(GitHub 설치) 0.1.0 | 있음(규칙 기반) | UTF-16 `[start,end)` | 문장 단위, 겹침 | 의존성 0, 동기 |
+| **korchunk** | npm(GitHub 설치) 0.1.1 | 있음(규칙 기반) | UTF-16 `[start,end)` | 문장 단위, 겹침 | 의존성 0, 동기 |
 | [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) | JS 내장 | 없음(부호 기반) | `index` | 없음 | 내장, ICU 버전에 따라 결과 다름 |
 | [sentence-splitter](https://www.npmjs.com/package/sentence-splitter) | npm 5.0.3 | 없음(영어·일본어 대상) | `range`/`loc` | 없음 | npm |
 | [sentencex-wasm](https://www.npmjs.com/package/sentencex-wasm) | npm 0.1.34 | 없음(부호 + 언어별 약어) | 경계 함수 | 없음 | WASM 초기화 필요 |
