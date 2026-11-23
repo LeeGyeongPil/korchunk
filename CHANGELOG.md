@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-11-24
+
+### Changed
+- docs: install from the npm registry (`npm install korchunk`) in both READMEs; the GitHub install is now the "latest development version" alternative.
+- Bump the exported `version` constant and package version to 0.1.3 to match the registry release.
+
 ## [0.1.2] - 2026-11-14
 
 ### Fixed
@@ -33,7 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   When a git install skipped the `prepare` build, the CLI says how to rebuild instead of printing a stack trace.
 - `npm run eval`: exact-match, precision and recall against a hand-written gold corpus, compared with `Intl.Segmenter`.
 
-[Unreleased]: https://github.com/LeeGyeongPil/korchunk/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/LeeGyeongPil/korchunk/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/LeeGyeongPil/korchunk/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/LeeGyeongPil/korchunk/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/LeeGyeongPil/korchunk/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/LeeGyeongPil/korchunk/releases/tag/v0.1.0
