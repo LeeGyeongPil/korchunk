@@ -11,10 +11,11 @@ A rule-based Korean sentence splitter and sentence-aware chunker for RAG indexin
 ## Install
 
 ```bash
-npm install github:LeeGyeongPil/korchunk
+npm install korchunk
 ```
 
 - Node 20.19 or newer (ESM only; CommonJS works through `require()` of ES modules on Node 20.19+ / 22.12+). The code is plain JavaScript and also runs in browsers and Deno.
+- Latest development version (built with tsc by the `prepare` script on install): `npm install github:LeeGyeongPil/korchunk`
 - Zero runtime dependencies. The only dev dependency is `typescript`.
 - No Node yet? `brew install node` (macOS) or download it from [nodejs.org](https://nodejs.org/).
 - To try the repository itself:
@@ -255,7 +256,7 @@ Values checked on 2026-11-12 from each package registry or repository. Features 
 
 | Tool | Form / version | Korean ending awareness | Offsets | Chunking | Runtime / dependencies |
 |---|---|---|---|---|---|
-| **korchunk** | npm (GitHub install) 0.1.2 | yes (rule-based) | UTF-16 `[start,end)` | sentence-based, overlap | zero dependencies, sync |
+| **korchunk** | npm 0.1.3 | yes (rule-based) | UTF-16 `[start,end)` | sentence-based, overlap | zero dependencies, sync |
 | [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) | built into JS | no (punctuation-based) | `index` | none | built in; results vary with ICU version |
 | [sentence-splitter](https://www.npmjs.com/package/sentence-splitter) | npm 5.0.3 | no (aimed at English/Japanese) | `range`/`loc` | none | npm |
 | [sentencex-wasm](https://www.npmjs.com/package/sentencex-wasm) | npm 0.1.34 | no (punctuation + per-language abbreviations) | boundary function | none | WASM init required |
@@ -282,7 +283,7 @@ These are plans, not promises of dates.
 | `E_BUDGET_BOTH` / `E_BUDGET_MISSING` | Both `maxChars` and `maxTokens`, or neither | Specify exactly one |
 | `E_OPTION: Unknown option "overlap"` | Option name typo | Use the suggested name (`overlapSentences`) |
 | CLI prints "The input is empty or only whitespace" | The file or standard input is empty or whitespace only | Check the input path (exit code stays 0) |
-| `Cannot find module '…/node_modules/korchunk/dist/index.js'` (import) or the CLI's `korchunk is not built` (Korean screen: `korchunk 가 빌드되지 않았습니다`) | A GitHub install builds `dist/` with the `prepare` (tsc) script, and npm skipped it (`--ignore-scripts`, `ignore-scripts=true` in `.npmrc`, or `allowScripts` set to false) | Reinstall without a setting that blocks install scripts: `npm uninstall korchunk && npm install github:LeeGyeongPil/korchunk`. In a cloned repo, run `npm run build` |
+| `Cannot find module '…/node_modules/korchunk/dist/index.js'` (import) or the CLI's `korchunk is not built` (Korean screen: `korchunk 가 빌드되지 않았습니다`) | (Applies to GitHub installs) A GitHub install builds `dist/` with the `prepare` (tsc) script, and npm skipped it (`--ignore-scripts`, `ignore-scripts=true` in `.npmrc`, or `allowScripts` set to false) | Switch to the registry install (ships a built `dist/`): `npm uninstall korchunk && npm install korchunk`. If you need the latest development version, reinstall from GitHub without a setting that blocks install scripts: `npm install github:LeeGyeongPil/korchunk`. In a cloned repo, run `npm run build` |
 | `--compare` differs from another machine | `Intl.Segmenter` varies with the ICU version | Record the Node and ICU versions printed on the first line |
 
 ## Versioning and compatibility

@@ -2,7 +2,7 @@
 
 **한국어** | [English](README.en.md)
 
-> **English summary** — A rule-based Korean sentence splitter and sentence-aware chunker for RAG indexing, written in TypeScript. It also splits text that has no periods ("…했어요 그런데 …"), and every sentence and chunk carries UTF-16 `[start, end)` offsets into the original text. Zero runtime dependencies; install with `npm install github:LeeGyeongPil/korchunk`.
+> **English summary** — A rule-based Korean sentence splitter and sentence-aware chunker for RAG indexing, written in TypeScript. It also splits text that has no periods ("…했어요 그런데 …"), and every sentence and chunk carries UTF-16 `[start, end)` offsets into the original text. Zero runtime dependencies; install with `npm install korchunk`.
 
 한국어 문서를 RAG 색인용으로 문장 단위로 자르고, 글자·토큰 예산 안에서 문장 단위 청크로 묶어 원문 오프셋까지 돌려주는 의존성 0 TypeScript 라이브러리입니다.
 
@@ -13,10 +13,11 @@
 ## 설치
 
 ```bash
-npm install github:LeeGyeongPil/korchunk
+npm install korchunk
 ```
 
 - Node 20.19 이상(ESM 전용이며, CommonJS 는 `require()` 의 ESM 로드를 지원하는 Node 20.19+ / 22.12+ 에서 쓸 수 있습니다). 브라우저·Deno 에서도 동작하는 순수 코드입니다.
+- 최신 개발판(설치 시 `prepare` 로 tsc 빌드): `npm install github:LeeGyeongPil/korchunk`
 - 런타임 의존성 0개. 개발 의존성은 `typescript` 하나입니다.
 - Node 가 없다면 `brew install node`(macOS) 또는 [nodejs.org](https://nodejs.org/) 에서 설치하세요.
 - 레포를 직접 받아 써 보려면:
@@ -257,7 +258,7 @@ Intl.Segmenter misses: 25 of 52 cases
 
 | 도구 | 형태·버전 | 한국어 어미 인식 | 오프셋 | 청킹 | 런타임·의존성 |
 |---|---|---|---|---|---|
-| **korchunk** | npm(GitHub 설치) 0.1.2 | 있음(규칙 기반) | UTF-16 `[start,end)` | 문장 단위, 겹침 | 의존성 0, 동기 |
+| **korchunk** | npm 0.1.3 | 있음(규칙 기반) | UTF-16 `[start,end)` | 문장 단위, 겹침 | 의존성 0, 동기 |
 | [`Intl.Segmenter`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter) | JS 내장 | 없음(부호 기반) | `index` | 없음 | 내장, ICU 버전에 따라 결과 다름 |
 | [sentence-splitter](https://www.npmjs.com/package/sentence-splitter) | npm 5.0.3 | 없음(영어·일본어 대상) | `range`/`loc` | 없음 | npm |
 | [sentencex-wasm](https://www.npmjs.com/package/sentencex-wasm) | npm 0.1.34 | 없음(부호 + 언어별 약어) | 경계 함수 | 없음 | WASM 초기화 필요 |
@@ -284,7 +285,7 @@ Intl.Segmenter misses: 25 of 52 cases
 | `E_BUDGET_BOTH` / `E_BUDGET_MISSING` | `maxChars`·`maxTokens` 를 둘 다 줬거나 하나도 안 줌 | 정확히 하나만 지정합니다 |
 | `E_OPTION: Unknown option "overlap"` | 옵션 이름 오타 | 안내된 이름(`overlapSentences`)으로 고칩니다 |
 | CLI 가 "입력이 비어 있거나 공백뿐입니다" 를 출력 | 파일·표준 입력이 비었거나 공백뿐 | 입력 경로를 확인합니다(종료 코드는 0) |
-| `Cannot find module '…/node_modules/korchunk/dist/index.js'`(import) 또는 CLI 의 `korchunk 가 빌드되지 않았습니다`(영어 화면은 `korchunk is not built`) | GitHub 설치는 `dist/` 를 `prepare`(tsc) 스크립트로 빌드하는데, npm 이 그 스크립트를 건너뜀(`--ignore-scripts`, `.npmrc` 의 `ignore-scripts=true`, `allowScripts` 가 false) | 스크립트를 막는 설정 없이 `npm uninstall korchunk && npm install github:LeeGyeongPil/korchunk` 로 다시 설치합니다. clone 했다면 `npm run build` |
+| `Cannot find module '…/node_modules/korchunk/dist/index.js'`(import) 또는 CLI 의 `korchunk 가 빌드되지 않았습니다`(영어 화면은 `korchunk is not built`) | (GitHub 설치에 해당) GitHub 설치는 `dist/` 를 `prepare`(tsc) 스크립트로 빌드하는데, npm 이 그 스크립트를 건너뜀(`--ignore-scripts`, `.npmrc` 의 `ignore-scripts=true`, `allowScripts` 가 false) | 레지스트리 설치(빌드된 `dist/` 포함)로 바꿉니다: `npm uninstall korchunk && npm install korchunk`. 최신 개발판이 필요하면 스크립트를 막는 설정 없이 `npm install github:LeeGyeongPil/korchunk` 로 다시 설치하고, clone 했다면 `npm run build` |
 | `--compare` 결과가 다른 PC 와 다름 | `Intl.Segmenter` 가 ICU 버전에 따라 다름 | 출력 첫 줄의 Node·ICU 버전을 함께 기록합니다 |
 
 ## 버전·호환성
